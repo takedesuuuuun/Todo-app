@@ -16,3 +16,19 @@ body {
   background-color: white;
   color: black;
 }
+
+h1 {
+  font-size: 200%;
+}
+
+h2 {
+  font-size: 150%;
+}
+
+h3 {
+  font-size: 125%;
+}
+
+small {
+  font-size: 50%;
+}
