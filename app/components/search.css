@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+#searchTop {
+  position: relative;
+  width: 70%;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+#textZone {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 36px;
+}
+
+#taskAdd,
+#search {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+
+  border-bottom: 1px solid black;
+}
+
+#taskAdd input,
+#search input {
+  flex: 1;
+  min-width: 0;
+}
+
+#taskAdd button,
+#search button,
+#filter button {
+  width: 64px;
+  background: rgba(84, 84, 84, 0.2);
+}
+
+#filter {
+  display: flex;
+  gap: 8px;
+}
+
+#filter button {
+  width: 72px;
+}
+
+@media (max-width: 924px) {
+  #searchTop {
+    width: 90%;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  #taskAdd button,
+  #search button {
+    font-size: 125%;
+  }
+
+  #filter {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 472px) {
+  #textZone {
+    flex-direction: column;
+  }
+}

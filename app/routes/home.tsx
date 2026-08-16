@@ -1,6 +1,6 @@
 import type { Route } from "./+types/home";
 import { Header } from "../components/header";
-import { Nav } from "../components/nav";
+import { Search } from "../components/search";
 import { List } from "../components/todolist";
 import { Footer } from "../components/footer";
 
@@ -17,7 +17,7 @@ export default function Home() {
       <Header />
 
       <main>
-        <Nav />
+        <Search />
         <List />
       </main>
 
