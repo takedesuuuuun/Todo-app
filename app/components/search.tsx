@@ -1,9 +1,6 @@
-import { useState } from "react";
 import "./search.css"
 
 export function Search() {
-
-  const [isOpen, setIsOpen] = useState(false);
 
   return(
     <section id="searchTop">
