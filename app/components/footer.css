@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+footer {
+  margin-top: 240px;
+
+  width: 100%;
+  padding: 8vh 0;
+
+  background-color: #909090;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.link a:hover {
+  opacity: 70%;
+}
+
+.link img {
+  width: 40px;
+}
