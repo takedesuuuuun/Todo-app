@@ -13,7 +13,7 @@ export function Footer() {
           rel="noopener noreferrer"
           aria-label="GitHub"
         >
-          <img src="../public/GitHub_Invertocat_Black.png" alt="GitHub" />
+          <img src="../../public/GitHub_Invertocat_Black.png" alt="GitHub" />
         </a>
       </div>
       
