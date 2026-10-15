@@ -32,11 +32,13 @@
   min-width: 0;
 }
 
-#taskAdd button,
-#search button,
-#filter button {
+.search_Button {
   width: 64px;
   background: rgba(84, 84, 84, 0.2);
+}
+
+.search_Button:hover {
+  opacity: 60%;
 }
 
 #filter {
