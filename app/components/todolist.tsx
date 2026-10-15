@@ -1,38 +1,81 @@
-import { useState } from "react";
+import { type  Dispatch, useState, type SetStateAction } from "react";
 import "./todolist.css";
 
-export function List() {
+type Task = {
+  id: number;
+  title: string;
+  completeness: number;
+  category: string;
+  priority: number;
+};
 
-  type Task = {
-    id: number;
-    title: string;
-    completeness: number;
-    category: string;
-    priority: number;
-  };
+type TaskListProps = {
+  tasks: Task[];
+  setTasks: Dispatch<SetStateAction<Task[]>>;
+  searchWord: string;
+  progressFilter: string;
+};
 
-  const [tasks, setTasks] = useState<Task[]>([
-    {
-      id: 1,
-      title: "React学習",
-      completeness: 1,
-      category: "学習",
-      priority: 4
-    },
-    {
-      id: 2,
-      title: "C++学習",
-      completeness: 0,
-      category: "学習",
-      priority: 2
-    }
-  ]);
+export default function List({
+  tasks,
+  setTasks,
+  searchWord,
+  progressFilter,
+}: TaskListProps) {
 
   const [openTaskId, setOpenTaskId] = useState<number | null>(null);
 
+  const updateTitle = (
+    id: number,
+    newTitle: string
+  ) => {
+    setTasks(
+      tasks.map((task) =>
+      task.id === id
+        ? { ...task, title: newTitle }
+        : task
+      )
+    );
+  };
+
+  const [editTitle, setEditTitle] = useState("");
+
+  const updateCategory = (
+    id: number,
+    newCategory: string
+  ) => {
+    setTasks(
+      tasks.map((task) =>
+      task.id === id
+        ? { ...task, category: newCategory }
+        : task
+      )
+    );
+  };
+
+  const [editCategory, setEditCategory] = useState("");
+
+  const deleteTask = (id: number) => {
+    setTasks(
+      tasks.filter((task) => task.id !== id)
+    );
+  };
+
+  const filteredTasks = tasks.filter((task) =>
+    task.title
+      .toLowerCase()
+      .includes(searchWord)
+  )
+  .filter((task) => {
+    if (progressFilter === "all") return true;
+    if (progressFilter === "inComp") return task.completeness === 0;
+    if (progressFilter === "halfComp") return task.completeness === 1;
+    if (progressFilter === "comp") return task.completeness === 2;
+  });
+
   return(
     <div id="list">
-      {tasks.map((task) => (
+      {filteredTasks.map((task) => (
         <div key={task.id} className="tasks">
           <h2><strong>{task.title}</strong></h2>
             <p>カテゴリー : {task.category}</p>
@@ -43,13 +86,34 @@ export function List() {
 
             {openTaskId === task.id && (
               <div className="edit">
+                <div className="titleEdit">
+                    <input
+                      type="text"
+                      value={editTitle}
+                      placeholder="タイトル名を入力"
+                      onChange={(e) => setEditTitle(e.target.value)}
+                    />
+                  <button
+                    onClick={() => updateTitle(task.id, editTitle)}
+                    className="editButton"
+                  >
+                    編集
+                  </button>
+                </div>
+
                 <div className="categoryEdit">
                   <input
                     type="text"
+                    value={editCategory}
                     placeholder="カテゴリー名を入力"
-                    name="category"
+                    onChange={(e) => setEditCategory(e.target.value)}
                   />
-                  <button className="editButton">編集</button>
+                  <button
+                    onClick={() => updateCategory(task.id, editCategory)}
+                    className="editButton"
+                  >
+                    編集
+                  </button>
                 </div>
                 <button onClick={() => setOpenTaskId(null)} className="exitButton">
                   <span></span>
@@ -84,6 +148,10 @@ export function List() {
                   <span>100</span>
                 </div>
               </div>
+
+              <button onClick={() => deleteTask(task.id)} className="taskDelete">
+                削除
+              </button>
               </div>
             )}
 

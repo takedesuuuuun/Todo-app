@@ -15,15 +15,6 @@ export function Footer() {
         >
           <img src="../public/GitHub_Invertocat_Black.png" alt="GitHub" />
         </a>
-
-        <a
-          href="https://portfolio-takedesuuuuun.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Portfolio"
-        >
-          Portfolio
-        </a>
       </div>
       
       <p><small>&copy; 2026 takedesuuuuun</small></p>

@@ -49,16 +49,30 @@
   z-index: 10;
 }
 
+.titleEdit {
+  position: absolute;
+  top: 40%;
+  left: 4%;
+
+  display: flex;
+}
+
+.titleEdit input {
+  width: 50%;
+  padding: 2px;
+  background-color: #8f8f8f;
+}
+
 .categoryEdit {
   position: absolute;
-  top: 20%;
-  right: -5%;
+  top: 40%;
+  right: -20%;
 
   display: flex;
 }
 
 .categoryEdit input {
-  width: 60%;
+  width: 50%;
   padding: 2px;
   background-color: #909090;
 }
@@ -102,6 +116,12 @@
   transform: rotate(-45deg);
 }
 
+.categoryButton:hover,
+.editButton:hover,
+.exitButton:hover {
+  opacity: 60%;
+}
+
 .completeness {
   position: absolute;
   bottom: 0;
@@ -116,6 +136,22 @@
 
 .completenessRange input {
   flex: 0.3;
+}
+
+.taskDelete {
+  position: absolute;
+  bottom: 4%;
+  left: 2%;
+
+  padding: 3px;
+
+  background-color: #ff0000;
+  border-radius: 4px;
+  opacity: 80%;
+}
+
+.taskDelete:hover {
+  opacity: 1;
 }
 
 .taskPriority {
